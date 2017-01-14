@@ -1,0 +1,4 @@
+#!/bin/bash
+source helper
+
+docker run -d -t ${IMAGE}
