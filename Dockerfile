@@ -30,7 +30,11 @@ RUN wget -O - https://github.com/mautic/mautic/archive/2.5.1.tar.gz | tar zx -C 
 RUN cd /var/www/html/app  && \
     mkdir -p cache/prod local/config local/themes local/idp local/media/files local/media/images
 COPY paths_local.php /var/www/html/app/config/
+COPY parameters_local.php /var/www/html/app/config/
 RUN  chown -R www-data:www-data /var/www/html
+
+RUN mkdir -p /var/log/mautic && \
+    chown www-data:www-data /var/log/mautic
 
 COPY default /etc/nginx/sites-enabled/
 COPY crontab /
