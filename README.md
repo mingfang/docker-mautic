@@ -1,2 +1,2 @@
 # docker-mautic
-Run Mautic Inside Docker
+Run [Mautic](https://github.com/mautic/mautic) Inside Docker
