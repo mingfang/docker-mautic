@@ -8,5 +8,8 @@ cd /var/www/html/app
 mkdir -p cache/prod local/config local/themes local/idp local/media/files local/media/images
 chown -R www-data:www-data /var/www/html
 
+mkdir -p /var/log/mautic
+chown -R www-data:www-data /var/log/mautic
+
 exec 2>&1
 exec nginx -g "daemon off;"
