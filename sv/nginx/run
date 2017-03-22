@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#sv start socklog-unix || exit 1
+sv start php || exit 1
 
 source /etc/envvars
 
