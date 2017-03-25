@@ -4,7 +4,7 @@
 
 source /etc/envvars
 
-crontab /crontab
+crontab -u www-data /crontab
 
 exec 2>&1
 exec cron -f
