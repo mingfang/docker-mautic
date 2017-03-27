@@ -38,6 +38,7 @@ RUN mkdir -p /var/log/mautic && \
 
 COPY default /etc/nginx/sites-enabled/
 COPY crontab /
+COPY php.ini /etc/php/7.0/fpm/
 
 # Add runit services
 COPY sv /etc/service 
