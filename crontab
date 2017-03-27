@@ -1,8 +1,8 @@
 PATH=/bin:/sbin:/usr/bin:/usr/local/bin
 
-0,15,30,45 * * * * php /var/www/html/app/console mautic:segments:update --no-interaction --no-ansi >> /var/log/cron.log 2>&1
-5,20,35,50 * * * * php /var/www/html/app/console mautic:campaigns:update --no-interaction --no-ansi >> /var/log/cron.log 2>&1
-10,25,40,55 * * * * php /var/www/html/app/console mautic:campaigns:trigger --no-interaction --no-ansi >> /var/log/cron.log 2>&1
-10,25,40,55 * * * * php /var/www/html/app/console mautic:emails:send --no-interaction --no-ansi >> /var/log/cron.log 2>&1
+*/1 * * * * php /var/www/html/app/console mautic:segments:update --no-interaction --no-ansi >> /var/log/cron.log 2>&1
+*/1 * * * * php /var/www/html/app/console mautic:campaigns:update --no-interaction --no-ansi >> /var/log/cron.log 2>&1
+*/1 * * * * php /var/www/html/app/console mautic:campaigns:trigger --no-interaction --no-ansi >> /var/log/cron.log 2>&1
+*/1 * * * * php /var/www/html/app/console mautic:emails:send --no-interaction --no-ansi >> /var/log/cron.log 2>&1
 5 8 * * 3 php /var/www/html/app/console mautic:iplookup:download --no-interaction --no-ansi >> /var/log/cron.log 2>&1
 #
