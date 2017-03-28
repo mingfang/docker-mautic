@@ -28,7 +28,7 @@ RUN wget -O - https://github.com/mautic/mautic/archive/2.7.1.tar.gz | tar zx -C 
 
 #Put all Mautic instance config files into one directory    
 RUN cd /var/www/html/app  && \
-    mkdir -p cache/prod local/config local/themes local/idp local/media/files local/media/images local/plugins
+    mkdir -p local/cache/prod local/config local/themes local/idp local/media/files local/media/images local/plugins
 COPY paths_local.php /var/www/html/app/config/
 COPY parameters_local.php /var/www/html/app/config/
 RUN  chown -R www-data:www-data /var/www/html

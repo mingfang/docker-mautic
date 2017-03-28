@@ -5,7 +5,7 @@ sv start php || exit 1
 source /etc/envvars
 
 cd /var/www/html/app
-mkdir -p cache/prod local/config local/themes local/idp local/media/files local/media/images local/plugins
+mkdir -p local/cache/prod local/config local/themes local/idp local/media/files local/media/images local/plugins
 find /var/www/html/app/local/plugins -type d -maxdepth 1 -mindepth 1 -print0 | xargs -0 ln -s -t /var/www/html/plugins
 chown -R www-data:www-data /var/www/html
 
