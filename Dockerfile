@@ -21,7 +21,7 @@ RUN apt-get install -y --no-install-recommends vim less net-tools inetutils-ping
 RUN apt-get install -y cron nginx php-fpm php-xml php-mbstring php-mysql php-mcrypt php-intl php-zip php-imap php-curl php-gd composer
 
 #Mautic
-RUN wget -O - https://github.com/mautic/mautic/archive/2.8.1.tar.gz | tar zx -C /var/www/html --strip-components=1 && \
+RUN wget -O - https://github.com/mautic/mautic/archive/2.8.2.tar.gz | tar zx -C /var/www/html --strip-components=1 && \
     cd /var/www/html && \
     mkdir -p .git/hooks && \
     composer install && \
