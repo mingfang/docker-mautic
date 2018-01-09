@@ -17,14 +17,14 @@ CMD bash -c 'export > /etc/envvars && /usr/sbin/runsvdir-start'
 RUN apt-get install -y --no-install-recommends vim less net-tools inetutils-ping wget curl git telnet nmap socat dnsutils netcat tree htop unzip sudo software-properties-common jq psmisc iproute python ssh rsync gettext-base
 
 #Required
-RUN apt-get install -y cron nginx php-fpm php-xml php-mbstring php-mysql php-mcrypt php-intl php-zip php-imap php-curl php-gd 
+RUN apt-get install -y cron nginx php-fpm php-xml php-mbstring php-mysql php-mcrypt php-intl php-zip php-imap php-curl php-gd php-bcmath
 
 FROM base AS build
 
 RUN apt-get install -y composer
 
 #Mautic
-RUN wget -O - https://github.com/mautic/mautic/archive/2.9.2.tar.gz | tar zx -C /var/www/html --strip-components=1 && \
+RUN wget -O - https://github.com/mautic/mautic/archive/2.12.1.tar.gz | tar zx -C /var/www/html --strip-components=1 && \
     cd /var/www/html && \
     mkdir -p .git/hooks && \
     composer install && \
