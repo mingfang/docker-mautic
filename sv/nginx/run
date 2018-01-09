@@ -12,5 +12,11 @@ chown -R www-data:www-data /var/www/html
 mkdir -p /var/log/mautic
 chown -R www-data:www-data /var/log/mautic
 
+mkdir -p /var/log/nginx
+
+/var/www/html/app/console cache:clear
+/var/www/html/app/console cache:warm
+/var/www/html/app/console doctrine:migration:migrate --no-interaction
+
 exec 2>&1
 exec nginx -g "daemon off;"
