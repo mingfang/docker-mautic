@@ -1,0 +1,35 @@
+namespaces:
+  {{namespace}}:
+    services:
+      - name: mautic
+        ports:
+        - port: 80
+        annotations:
+          nginx:
+          - http:
+            - server: "mautic.{{namespace}}.*"
+              paths:
+              - path: /
+        pod:
+          containers:
+          - name: mautic
+            image: registry.rebelsoft.com/mautic:latest
+
+      - name: mautic-db
+        ports:
+        - {port: 3306, name: mysql}
+        pod:
+          replicas: 1
+          containers:
+          - name: mysql
+            image: registry.rebelsoft.com/mysql:latest
+            lifecycle:
+              postStart:
+                exec:
+                  command:
+                    - sh
+                    - -c
+                    - >
+                      mysqladmin --wait=30 ping;
+                      echo "CREATE DATABASE IF NOT EXISTS mautic;" | mysql;
+                      echo "GRANT ALL ON mautic.* TO 'mautic'@'%' IDENTIFIED BY 'mautic';" | mysql;
