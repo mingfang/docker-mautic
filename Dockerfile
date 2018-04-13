@@ -24,7 +24,7 @@ FROM base AS build
 RUN apt-get install -y composer
 
 #Mautic
-RUN wget -O - https://github.com/mautic/mautic/archive/2.12.1.tar.gz | tar zx -C /var/www/html --strip-components=1 && \
+RUN wget -O - https://github.com/mautic/mautic/archive/2.12.2.tar.gz | tar zx -C /var/www/html --strip-components=1 && \
     cd /var/www/html && \
     mkdir -p .git/hooks && \
     composer install && \
