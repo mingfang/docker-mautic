@@ -50,7 +50,7 @@ namespaces:
           image: registry.rebelsoft.com/mautic:latest
           volumeMounts:
           - name: configmap
-            mountPath: /var/www/html/app/local/config/local.php
+            mountPath: /var/www/html/app/local/config/local.php.default
             subPath: local.php
           lifecycle:
             postStart:
@@ -59,8 +59,10 @@ namespaces:
                 - bash
                 - -cex
                 - |
-                  sleep 10
+                  until nc -vz 127.0.0.1 3306;do sleep 3; done
                   /var/www/html/app/console mautic:install:data --force
+                  cp /var/www/html/app/local/config/local.php.default /var/www/html/app/local/config/local.php
+                  chown www-data:www-data /var/www/html/app/local/config/local.php
         - name: mysql
           image: registry.rebelsoft.com/mysql:latest
           lifecycle:
