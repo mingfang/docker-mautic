@@ -52,6 +52,7 @@ namespaces:
           - name: configmap
             mountPath: /var/www/html/app/local/config/local.php
             subPath: local.php
+            readOnly: false
           lifecycle:
             postStart:
               exec:
