@@ -20,3 +20,4 @@ mkdir -p /var/log/nginx
 
 exec 2>&1
 exec nginx -g "daemon off;"
+
