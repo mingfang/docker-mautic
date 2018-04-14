@@ -56,8 +56,8 @@ namespaces:
             postStart:
               exec:
                 command:
-                - bash -ex
-                - -c
+                - bash
+                - -cex
                 - |
                   sleep 10
                   /var/www/html/app/console mautic:install:data --force
@@ -67,8 +67,8 @@ namespaces:
             postStart:
               exec:
                 command:
-                - bash -ex
-                - -c
+                - bash
+                - -cex
                 - |
                   mysqladmin --wait=30 ping
                   echo "CREATE DATABASE IF NOT EXISTS mautic;" | mysql
