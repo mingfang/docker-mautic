@@ -59,7 +59,7 @@ namespaces:
                 - bash
                 - -cex
                 - |
-                  until nc -vz 127.0.0.1 3306;do sleep 3; done
+                  sleep 10
                   /var/www/html/app/console mautic:install:data --force
                   cp /var/www/html/app/local/config/local.php.default /var/www/html/app/local/config/local.php
                   chown www-data:www-data /var/www/html/app/local/config/local.php
