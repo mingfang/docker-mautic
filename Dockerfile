@@ -53,3 +53,4 @@ COPY php.ini /etc/php/7.0/fpm/
 COPY sv /etc/service 
 ARG BUILD_INFO
 LABEL BUILD_INFO=$BUILD_INFO
+VOLUME /var/www/html/app/local
