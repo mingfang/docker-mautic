@@ -24,7 +24,7 @@ FROM base AS build
 RUN apt-get install -y composer
 
 #Mautic
-RUN wget -O - https://github.com/mautic/mautic/archive/2.13.1.tar.gz | tar zx -C /var/www/html --strip-components=1 && \
+RUN wget -O - https://github.com/mautic/mautic/archive/2.15.0.tar.gz | tar zx -C /var/www/html --strip-components=1 && \
     cd /var/www/html && \
     mkdir -p .git/hooks && \
     composer install && \
@@ -53,3 +53,4 @@ COPY php.ini /etc/php/7.0/fpm/
 COPY sv /etc/service 
 ARG BUILD_INFO
 LABEL BUILD_INFO=$BUILD_INFO
+VOLUME /var/www/html/app/local
